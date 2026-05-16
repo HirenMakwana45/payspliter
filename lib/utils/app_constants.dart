@@ -1,0 +1,41 @@
+// Shared Pref
+
+// const IS_FIRST_TIME = 'IS_FIRST_TIME';
+// const IS_REMEMBER = 'IS_REMEMBER';
+const fIRSTNAME = "FIRSTNAME";
+const lASTNAME = "LASTNAME";
+const uSERID = "USER_ID";
+const uSERNATIVELANGUAGE = "USER_NATIVE_LANGUAGE";
+const uSERENGLISHPROFICIENCY= "USER_ENGLISH_PROFICIENCY";
+const dAYSSINCEINSTALL= "DAYS_SINCE_INSTALL";
+
+// const SESSION_ID= "SESSION_ID";
+// const GAME_NAME= "GAME_NAME";
+
+const iSLOGIN = "IS_LOGIN";
+const tOKEN = "TOKEN";
+const pHONENUMBER = "PHONE_NUMBER";
+
+// const IS_MUTE = "IS_MUTE";
+const iSTTSPLAYING = "IS_TTS_PLAYING";
+const pREVIOUSSENTENCE = "PREVIOUS_SENTENCE";
+
+
+
+const fIREBASEANDROIDAPIKEY = '';
+const fIREBASEANDROIDAPPID = '';
+const fIREBASEANDROIDMESSAGINGSENDERID ='';
+const fIREBASEANDROIDPROJECTID ='';
+
+// const GOOGLE_MAP_API_KEY ='';
+
+
+const statusSuccess = 'User registered successfully';
+
+
+
+
+
+
+
+
