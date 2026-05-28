@@ -138,11 +138,11 @@ AppBar appBarWidget(String title,
           style: titleTextStyle ?? (boldTextStyle(color:
 
           // appStore.isDarkMode ? Colors.white :
-          Colors.black, size: textSize)),
+          lightSecondaryColor, size: textSize)),
         ),
     actions: actions ?? [],
     automaticallyImplyLeading: showBack,
-    // backgroundColor:  secondaryColor.withValues(red:0.4,),
+    backgroundColor:  primaryColor,
     leading: showBack ? (backWidget) : null,
     shadowColor: shadowColor,
     elevation: elevation ?? defaultAppBarElevation,

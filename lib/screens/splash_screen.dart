@@ -2,15 +2,15 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:payspliter/screens/mobile_login_screen.dart';
 
 import '../../../main.dart';
-import '../Utils/app_colors.dart';
 import '../Utils/app_config.dart';
-import '../components/progerss_indicator.dart';
 import '../extensions/extension_util/duration_extensions.dart';
 import '../extensions/extension_util/int_extensions.dart';
 import '../extensions/extension_util/widget_extensions.dart';
 import '../extensions/text_styles.dart';
+import '../utils/app_colors.dart';
 import '../utils/app_images.dart';
 import 'login_screen.dart';
 
@@ -33,7 +33,7 @@ class SplashScreenState extends State<SplashScreen> {
     init();
   }
 
-  init() async {
+  Future<void> init() async {
     // await 2.seconds.delay;
     timer = Timer.periodic(const Duration(milliseconds: 20), (timer) {
       setState(() {
@@ -50,8 +50,7 @@ class SplashScreenState extends State<SplashScreen> {
       }
     });
     if (!mounted) return;
-    // LocationPermissionScreen().launch(context);
-    // MapLocationScreen().launch(context);
+
     // LoginScreen().launch(context);
     // if (!getBoolAsync(IS_FIRST_TIME)) {
     //   WalkThroughScreen().launch(context, isNewTask: true);
@@ -79,102 +78,88 @@ class SplashScreenState extends State<SplashScreen> {
         // systemNavigationBarIconBrightness:
         // appStore.isDarkMode ? Brightness.light : Brightness.dark,
       ),
-      child: Scaffold(
-        backgroundColor: Colors.black,
-        body: Stack(
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-
-              children: [
-                Image.asset(icLogo, width: 100, fit: BoxFit.cover),
-                20.height,
-                Text(
-                  appName,
-                  style: boldTextStyle(color: Colors.white, size: 28),
-                ),
-                20.height,
-                Text(
-                  'Split smart. Pay simple',
-                  style: primaryTextStyle(color: primaryColor, size: 18),
-                ),
-              ],
-            ).center(),
-            Positioned(
-              left: 20,
-              right: 20,
-              bottom: 40,
-              child: Column(
+      child: SafeArea(
+        child: Scaffold(
+          backgroundColor: primaryColor,
+          body: Stack(
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
 
                 children: [
-
-
-                  /// Progress Text
-                  Row(
-                    mainAxisAlignment:
-                    MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Text(
-                        "Securing your connection...",
-                        style: TextStyle(
-                          color: Colors.white70,
-                          fontSize: 14,
-                        ),
-                      ),
-
-                      Text(
-                        "${(progress * 100).toInt()}%",
-                        style: const TextStyle(
-                          color: primaryColor,
-                          fontSize: 10,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-
-                  const SizedBox(height: 16),
-
-                  /// Progress Bar
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: LinearProgressIndicator(
-                      value: progress,
-                      minHeight: 6,
-                      backgroundColor:  secondaryColor,
-                      valueColor:
-                      const AlwaysStoppedAnimation(
-                       primaryColor,
+                  Container(
+                    height: 150,
+                    width: 150,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(35),
+                      gradient: LinearGradient(
+                        colors: [gradientFirstColor, primaryTeal],
                       ),
                     ),
+                    child: Image.asset(
+                      icLogo,
+                      width: 86,
+                      height: 86,
+                      fit: BoxFit.cover,
+                    ).paddingAll(30),
                   ),
-                  const SizedBox(height: 24),
-
-                  /// Bottom Text
-                  Row(
-                    mainAxisAlignment:
-                    MainAxisAlignment.center,
-                    children: const [
-                      Icon(
-                        Icons.lock_outline,
-                        color: primaryColor,
-                        size: 18,
-                      ),
-                      SizedBox(width: 8),
-                      Text(
-                        "BANK-GRADE ENCRYPTION",
-                        style: TextStyle(
-                          color: Colors.white54,
-                          letterSpacing: 1.5,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ],
+                  10.height,
+                  Text(
+                    appName,
+                    style: boldTextStyle(color: Colors.white, size: 28),
+                  ),
+                  10.height,
+                  Text(
+                    'Split smart. Pay simple',
+                    style: primaryTextStyle(
+                      color: lightSecondaryColor,
+                      size: 18,
+                    ),
                   ),
                 ],
-              ).paddingAll(16),
-            ),
-          ],
+              ).center(),
+              Positioned(
+                left: 20,
+                right: 20,
+                bottom: 40,
+                child: Column(
+                  children: [
+                    /// Progress Text
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                         Text(
+                          "Securing your connection...",
+                          style: secondaryTextStyle(color: Colors.white70, size: 14),
+                        ),
+
+                        Text(
+                          "${(progress * 100).toInt()}%",
+                          style:  secondaryTextStyle(
+                            color: secondaryColor,
+                            size: 10,
+                            weight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    16.height,
+
+                    /// Progress Bar
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: LinearProgressIndicator(
+                        value: progress,
+                        minHeight: 6,
+                        backgroundColor: fieldFillColor,
+                        valueColor: const AlwaysStoppedAnimation(lightSecondaryColor),
+                      ),
+                    ),
+                  ],
+                ).paddingAll(16),
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../extensions/colors.dart';
 import '../../extensions/decorations.dart';
@@ -7,42 +8,51 @@ class AppTheme {
   AppTheme._();
 
   static final ThemeData lightTheme = ThemeData(
-      useMaterial3: true,
-      bottomSheetTheme: const BottomSheetThemeData(backgroundColor: Colors.transparent),
-      scaffoldBackgroundColor: whiteColor,
-      primaryColor: primaryColor,
-      iconTheme: const IconThemeData(color: Colors.black),
-      dividerColor: viewLineColor,
-      cardColor: cardLightColor,
-      colorScheme: const ColorScheme(
-        primary: primaryColor,
-        secondary: primaryColor,
-        surface: Colors.white,
-        error: Colors.red,
-        onPrimary: Colors.white,
-        onSecondary: Colors.black,
-        onSurface: Colors.black,
-        onError: Colors.redAccent,
-        brightness: Brightness.light,
+    fontFamily: 'Poppins',
+    useMaterial3: true,
+    bottomSheetTheme: const BottomSheetThemeData(
+      backgroundColor: Colors.transparent,
+    ),
+    scaffoldBackgroundColor: whiteColor,
+    primaryColor: primaryColor,
+    iconTheme: const IconThemeData(color: Colors.black),
+    dividerColor: viewLineColor,
+    cardColor: cardLightColor,
+    colorScheme: const ColorScheme(
+      primary: primaryColor,
+      secondary: primaryColor,
+      surface: Colors.white,
+      error: Colors.red,
+      onPrimary: Colors.white,
+      onSecondary: Colors.black,
+      onSurface: Colors.black,
+      onError: Colors.redAccent,
+      brightness: Brightness.light,
+    ),
+    checkboxTheme: CheckboxThemeData(
+      shape: RoundedRectangleBorder(
+        borderRadius: radius(20),
+        side: const BorderSide(width: 1, color: primaryColor),
       ),
-      checkboxTheme: CheckboxThemeData(
-        shape: RoundedRectangleBorder(borderRadius: radius(20), side: const BorderSide(width: 1, color: primaryColor)),
-        checkColor: WidgetStateProperty.all(Colors.white),
-        fillColor: WidgetStateProperty.all(primaryColor),
-        materialTapTargetSize: MaterialTapTargetSize.padded,
-      ),
-      // textTheme: GoogleFonts.interTextTheme(),
-      pageTransitionsTheme: const PageTransitionsTheme(
-        builders: <TargetPlatform, PageTransitionsBuilder>{
-          TargetPlatform.android: OpenUpwardsPageTransitionsBuilder(),
-          TargetPlatform.linux: OpenUpwardsPageTransitionsBuilder(),
-          TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-        },
-      ));
+      checkColor: WidgetStateProperty.all(Colors.white),
+      fillColor: WidgetStateProperty.all(primaryColor),
+      materialTapTargetSize: MaterialTapTargetSize.padded,
+    ),
+    // textTheme: GoogleFonts.interTextTheme(),
+    pageTransitionsTheme: const PageTransitionsTheme(
+      builders: <TargetPlatform, PageTransitionsBuilder>{
+        TargetPlatform.android: OpenUpwardsPageTransitionsBuilder(),
+        TargetPlatform.linux: OpenUpwardsPageTransitionsBuilder(),
+        TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+      },
+    ),
+  );
 
   static final ThemeData darkTheme = ThemeData(
     useMaterial3: false,
-    bottomSheetTheme: const BottomSheetThemeData(backgroundColor: Colors.transparent),
+    bottomSheetTheme: const BottomSheetThemeData(
+      backgroundColor: Colors.transparent,
+    ),
     scaffoldBackgroundColor: scaffoldColorDark,
     iconTheme: const IconThemeData(color: Colors.white),
     cardColor: cardDarkColor,
@@ -60,7 +70,10 @@ class AppTheme {
     dividerColor: Colors.white24,
     // textTheme: GoogleFonts.interTextTheme(),
     checkboxTheme: CheckboxThemeData(
-      shape: RoundedRectangleBorder(borderRadius: radius(20), side: const BorderSide(width: 1, color: primaryColor)),
+      shape: RoundedRectangleBorder(
+        borderRadius: radius(20),
+        side: const BorderSide(width: 1, color: primaryColor),
+      ),
       checkColor: WidgetStateProperty.all(Colors.white),
       fillColor: WidgetStateProperty.all(primaryColor),
       materialTapTargetSize: MaterialTapTargetSize.padded,

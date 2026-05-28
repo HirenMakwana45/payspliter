@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../Utils/app_colors.dart';
 import 'colors.dart';
 import 'common.dart';
 import 'extension_util/int_extensions.dart';
@@ -19,8 +20,8 @@ double? defaultInkWellRadius;
 Color defaultLoaderBgColorGlobal = Colors.white;
 Color? defaultLoaderAccentColorGlobal;
 
-Color textPrimaryColorGlobal = textPrimaryColor;
-Color textSecondaryColorGlobal = dividerDarkColor;
+Color textPrimaryColorGlobal = Colors.white;
+Color textSecondaryColorGlobal = lightBlueColor;
 double textBoldSizeGlobal = 16;
 double textPrimarySizeGlobal = 16;
 double textSecondarySizeGlobal = 14;

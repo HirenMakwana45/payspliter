@@ -121,7 +121,7 @@ class OTPTextFieldState extends State<OTPTextField>  {
       children: List.generate(list.length, (index) {
         return Container(
           width: widget.fieldWidth,
-          margin: EdgeInsets.symmetric(horizontal: 8),
+          margin: EdgeInsets.symmetric(horizontal: 4),
           decoration: BoxDecoration(
             border: Border.all(
                 color: list[index].focusNode!.hasFocus

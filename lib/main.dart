@@ -5,9 +5,12 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:payspliter/screens/login_screen.dart';
+import 'package:payspliter/screens/mobile_login_screen.dart';
 import 'package:payspliter/screens/no_internet_screen.dart';
 import 'package:payspliter/screens/splash_screen.dart';
 import 'package:payspliter/store/UserStore/UserStore.dart';
+import 'package:payspliter/store/app_store.dart';
 import 'package:payspliter/utils/app_common.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:toastification/toastification.dart';
@@ -18,9 +21,10 @@ import 'extensions/common.dart';
 import 'extensions/system_utils.dart';
 
 UserStore userStore = UserStore();
+AppStore appStore = AppStore();
 
-final navigatorKey = GlobalKey<NavigatorState>();
 late SharedPreferences sharedPreferences;
+final navigatorKey = GlobalKey<NavigatorState>();
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
